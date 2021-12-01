@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Config",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "PrintComment": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "CopyFile": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/FileCopyEntry"
+      }
+    },
+    "DeleteFile": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "MoveFile": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/FileMoveEntry"
+      }
+    }
+  },
+  "definitions": {
+    "FileCopyEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "From": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "To": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "FileMoveEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "From": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "To": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    }
+  }
+}
