@@ -4,6 +4,7 @@ using YamlDotNet.Serialization.NamingConventions;
 using YamlDotNet.Serialization;
 using BepInEx;
 using System.IO;
+using System.Linq;
 
 namespace Valheim.ThisGoesHere.Configs;
 
@@ -11,9 +12,10 @@ internal static class ConfigLoader
 {
     public static List<Config> Load()
     {
-        var configPaths = Directory.GetFiles(Paths.ConfigPath, Constants.ConfigName, SearchOption.AllDirectories);
+        var configPaths = Directory.GetFiles(Paths.ConfigPath, Constants.ConfigName, SearchOption.AllDirectories)?.ToList() ?? new();
+        configPaths.AddRange(Directory.GetFiles(Paths.ConfigPath, Constants.ConfigCustomNamePattern, SearchOption.AllDirectories));
 
-        if (configPaths is null || configPaths.Length == 0)
+        if (!configPaths.Any())
         {
             return new(0);
         }
@@ -23,7 +25,7 @@ internal static class ConfigLoader
            .IgnoreUnmatchedProperties()
            .Build();
 
-        List<Config> configs = new(configPaths.Length);
+        List<Config> configs = new(configPaths.Count);
 
         foreach (var file in configPaths)
         {
