@@ -25,6 +25,7 @@ internal static class FileDeleteOperation
             if (!PathHelper.IsInsideBepInExFolder(pathFull))
             {
                 Log.LogDebug($"Skipping deletion of file from '{pathPartial}'. File must be inside bepinex folder.");
+                return;
             }
 
             if (!File.Exists(pathFull))

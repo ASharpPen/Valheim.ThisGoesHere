@@ -25,6 +25,7 @@ internal static class FileMoveOperation
             if (!PathHelper.IsInsideBepInExFolder(fromFull))
             {
                 Log.LogDebug($"Skipping move of file from '{fromPartial}'. File must be inside bepinex folder.");
+                return;
             }
 
             if (!File.Exists(fromFull))
@@ -43,6 +44,7 @@ internal static class FileMoveOperation
             if (!PathHelper.IsInsideBepInExFolder(toFull))
             {
                 Log.LogDebug($"Skipping move of file to '{toPartial}'. File must be inside bepinex folder.");
+                return;
             }
 
             Log.LogInfo($"Moving '{fromPartial}' to '{toPartial}'");
