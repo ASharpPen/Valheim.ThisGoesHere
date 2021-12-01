@@ -1,0 +1,12 @@
+PrintComment: This text is printed when config is executed.
+CopyFile:
+- From: config/copy_this_file.txt
+  To: plugins/folder/to_this_file.txt
+MoveFile:
+- From: config/move_this_file.txt
+  To: config/to_this_folder/move_this_file.txt
+- From: config/move_this_too.txt
+  To: config/to_this_folder/move_this_too.txt
+DeleteFile:
+- config\remove_this.txt
+- plugins/and_this.txt
