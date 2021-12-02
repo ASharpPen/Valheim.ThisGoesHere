@@ -25,6 +25,7 @@ internal static class FileCopyOperation
             if (!PathHelper.IsInsideBepInExFolder(fromFull))
             {
                 Log.LogDebug($"Skipping copy of file from '{fromPartial}'. File must be inside bepinex folder.");
+                return;
             }
 
             if (!File.Exists(fromFull))
@@ -43,6 +44,7 @@ internal static class FileCopyOperation
             if (!PathHelper.IsInsideBepInExFolder(toFull))
             {
                 Log.LogDebug($"Skipping copy of file to '{toPartial}'. File must be inside bepinex folder.");
+                return;
             }
 
             Log.LogInfo($"Copying '{fromPartial}' to '{toPartial}'");
