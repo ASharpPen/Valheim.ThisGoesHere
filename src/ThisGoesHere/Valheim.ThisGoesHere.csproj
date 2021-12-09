@@ -270,6 +270,9 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Log.cs" />
+    <Compile Include="Operations\DirectoryCopyOperation.cs" />
+    <Compile Include="Operations\DirectoryDeleteOperation.cs" />
+    <Compile Include="Operations\DirectoryMoveOperation.cs" />
     <Compile Include="Operations\FileCopyOperation.cs" />
     <Compile Include="Operations\FileDeleteOperation.cs" />
     <Compile Include="Operations\FileMoveOperation.cs" />

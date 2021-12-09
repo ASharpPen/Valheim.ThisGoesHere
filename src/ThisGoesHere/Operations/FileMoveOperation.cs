@@ -18,9 +18,17 @@ internal static class FileMoveOperation
             return;
         }
 
+        MoveRelative(config.From, config.To);
+    }
+
+    /// <param name="fromFile">Relative path to file to move.</param>
+    /// <param name="toFile">Relative target to move file to.</param>
+    public static void MoveRelative(string fromFile, string toFile)
+    { 
+
         try
         {
-            (string fromFull, string fromPartial) = PathHelper.ExtractFilePath(config.From);
+            (string fromFull, string fromPartial) = PathHelper.ExtractFilePath(fromFile);
 
             if (!PathHelper.IsInsideBepInExFolder(fromFull))
             {
@@ -34,7 +42,7 @@ internal static class FileMoveOperation
                 return;
             }
 
-            (string toFull, string toPartial) = PathHelper.ExtractFilePath(config.To);
+            (string toFull, string toPartial) = PathHelper.ExtractFilePath(toFile);
 
             if (toFull == fromFull)
             {
@@ -61,7 +69,7 @@ internal static class FileMoveOperation
         }
         catch (Exception e)
         {
-            Log.LogWarning($"Error while attempting to move file '{config.From}' to '{config.To}'.", e);
+            Log.LogWarning($"Error while attempting to move file '{fromFile}' to '{toFile}'.", e);
         }
     }
 }
