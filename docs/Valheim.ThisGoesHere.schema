@@ -19,6 +19,15 @@
         "$ref": "#/definitions/FileCopyEntry"
       }
     },
+    "MoveFile": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/FileMoveEntry"
+      }
+    },
     "DeleteFile": {
       "type": [
         "array",
@@ -28,13 +37,31 @@
         "type": "string"
       }
     },
-    "MoveFile": {
+    "MoveFolder": {
       "type": [
         "array",
         "null"
       ],
       "items": {
-        "$ref": "#/definitions/FileMoveEntry"
+        "$ref": "#/definitions/FolderMoveEntry"
+      }
+    },
+    "CopyFolder": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/FolderCopyEntry"
+      }
+    },
+    "DeleteFolder": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
       }
     }
   },
@@ -58,6 +85,42 @@
       }
     },
     "FileMoveEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "From": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "To": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "FolderMoveEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "From": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "To": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "FolderCopyEntry": {
       "type": "object",
       "additionalProperties": false,
       "properties": {

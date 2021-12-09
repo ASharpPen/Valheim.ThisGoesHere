@@ -8,7 +8,7 @@ internal class Plugin : BaseUnityPlugin
 {
     public const string Guid = ".valheim.this_goes_here";
     public const string Name = "This Goes Here";
-    public const string Version = "1.1.0";
+    public const string Version = "1.2.0";
 
     void Awake()
     {

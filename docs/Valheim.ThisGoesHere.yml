@@ -10,3 +10,14 @@ MoveFile:
 DeleteFile:
 - config\remove_this.txt
 - plugins/and_this.txt
+CopyFolder:
+- From: config/copy_this_folder/
+  To: plugins/into_this/
+MoveFolder:
+- From: config/move_this_folder/
+  To: config/into_this/
+- From: config/move_this_too/
+  To: plugin/
+DeleteFolder:
+- config\remove_this\
+- plugins/and_this
