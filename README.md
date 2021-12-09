@@ -6,7 +6,7 @@ Intended to help mod authors, by letting them supply a config file with their de
 
 Note, only files and paths within the BepInEx folder are valid.
 
-ThisGoesHere scans the `BepInEx/configs` folder for any and all files named `Valheim.ThisGoesHere.yml` or with a wildcard part `Valheim.ThisGoes.*.yml`.
+ThisGoesHere scans the `BepInEx/configs` folder for any and all files named `Valheim.ThisGoesHere.yml` or with a wildcard part to add your own personal touch `Valheim.ThisGoesHere.*.yml`.
 
 ## Currently supported operations
 - File
