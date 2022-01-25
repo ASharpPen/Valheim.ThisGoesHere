@@ -97,6 +97,8 @@ This example will result in logs like this when starting Valheim.
 ```
 
 # Changelog:
+- v1.2.1
+  - Fixed CopyFolder and MoveFolder moving entire 'from'-path into 'to', instead of just the indicated 'from' folder.
 - v1.2.0
   - Added folder options for move, copy, delete.
   - Fixed readme typo in filename for wild-card configs.

@@ -276,6 +276,7 @@
     <Compile Include="Operations\FileCopyOperation.cs" />
     <Compile Include="Operations\FileDeleteOperation.cs" />
     <Compile Include="Operations\FileMoveOperation.cs" />
+    <Compile Include="Utilities\DirectoryUtils.cs" />
     <Compile Include="Utilities\PathHelper.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
