@@ -2,6 +2,7 @@
 using System.IO;
 using BepInEx;
 using Valheim.ThisGoesHere.Configs;
+using Valheim.ThisGoesHere.Utilities;
 
 namespace Valheim.ThisGoesHere.Operations;
 
@@ -37,6 +38,10 @@ internal static class DirectoryCopyOperation
 
             (string toFull, string toPartial) = PathHelper.ExtractFilePath(config.To);
 
+            var fromFolder = new DirectoryInfo(fromFull).Name;
+            toFull = Path.Combine(toFull, fromFolder);
+            toPartial = Path.Combine(toPartial, fromFolder);
+
             if (toFull == fromFull)
             {
                 return;
@@ -54,15 +59,7 @@ internal static class DirectoryCopyOperation
 
             Log.LogTrace($"Found {files.Length} files to copy.");
 
-            foreach (var fromFullFilePath in files)
-            {
-                var toRelativeFilePath = PathHelper.GetRelativePath(fromFullFilePath, toFull);
-                var toFullFilePath = Path.Combine(toFull, toRelativeFilePath);
-
-                PathHelper.EnsureDirectoryExistsForFile(toFullFilePath);
-
-                File.Copy(fromFullFilePath, toFullFilePath, true);
-            }
+            DirectoryUtils.CopyAll(new DirectoryInfo(fromFull), new DirectoryInfo(toFull));
         }
         catch (Exception e)
         {
