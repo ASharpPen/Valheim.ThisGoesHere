@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using BepInEx;
 using YamlDotNet.Serialization.NamingConventions;
 using YamlDotNet.Serialization;
+using BepInEx;
 
 namespace Valheim.ThisGoesHere.Configs;
 

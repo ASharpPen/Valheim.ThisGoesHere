@@ -97,6 +97,10 @@ This example will result in logs like this when starting Valheim.
 ```
 
 # Changelog:
+- v1.3.0
+  - Converted from plugin to patcher. This means This Goes Here now runs before any plugins are loaded.
+- v1.2.2
+  - Added missing YamlDotNet, forgot to add it to the bundle. Woops.
 - v1.2.1
   - Fixed CopyFolder and MoveFolder moving entire 'from'-path into 'to', instead of just the indicated 'from' folder.
 - v1.2.0
