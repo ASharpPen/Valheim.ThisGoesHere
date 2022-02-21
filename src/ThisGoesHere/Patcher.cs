@@ -1,23 +1,16 @@
-﻿using BepInEx;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Valheim.ThisGoesHere.Configs;
+using Mono.Cecil;
 
 namespace Valheim.ThisGoesHere;
 
-[BepInPlugin(Guid, Name, Version)]
-internal class Plugin : BaseUnityPlugin
+internal static class Patcher
 {
-    public const string Guid = ".valheim.this_goes_here";
     public const string Name = "This Goes Here";
-    public const string Version = "1.2.1";
+    public const string Version = "2.0.0";
 
-    void Awake()
-    {
-        Log.Logger = Logger;
-
-        Run();
-    }
-
-    private void Run()
+    public static void Initialize()
     {
         var configs = ConfigLoader.Load();
 
@@ -39,4 +32,8 @@ internal class Plugin : BaseUnityPlugin
             }
         }
     }
+
+    public static IEnumerable<string> TargetDLLs { get; } = Enumerable.Empty<string>();
+
+    public static void Patch(AssemblyDefinition _) { }
 }

@@ -1,22 +1,29 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using BepInEx;
+using Valheim.ThisGoesHere.Extensions;
 
 namespace Valheim.ThisGoesHere;
 
 internal static class PathHelper
 {
-    public static (string full, string partial) ExtractFilePath(string file)
+    public static void ExtractFilePath(string file, out string full, out string partial)
     {
-        var recombined = Path.Combine(file.SplitBySlash());
-        return (Path.Combine(Paths.BepInExRootPath, recombined), recombined);
+        var recombined = Combine(file.SplitBySlash());
+
+        full = Path.Combine(Paths.BepInExRootPath, recombined);
+        partial = recombined;
     }
 
-    public static (string full, string relative) ExtractPath(string relativePath)
+    public static void ExtractPath(string relativePath, out string full, out string relative)
     {
-        var relativeRecombined = Path.Combine(relativePath.SplitBySlash());
-        return (Path.Combine(Paths.BepInExRootPath, relativeRecombined), relativeRecombined);
+        var relativeRecombined = Combine(relativePath.SplitBySlash());
+
+        full = Path.Combine(Paths.BepInExRootPath, relativeRecombined);
+        relative = relativeRecombined;
     }
 
     /// <summary>
@@ -35,7 +42,7 @@ internal static class PathHelper
                 int relativePartsCount = pathParts.Length - i;
                 var relativeParts = new string[relativePartsCount];
                 Array.Copy(pathParts, i, relativeParts, 0, relativePartsCount);
-                return Path.Combine(relativeParts);
+                return Combine(relativeParts);
             }
         }
 
@@ -58,5 +65,17 @@ internal static class PathHelper
             Log.LogTrace("Creating missing folders in path.");
             Directory.CreateDirectory(dir);
         }
+    }
+
+    public static string Combine(IEnumerable<string> paths)
+    {
+        string current = paths.FirstOrDefault();
+        
+        foreach (var path in paths.Skip(1))
+        {
+            current = Path.Combine(current, path);
+        }
+
+        return current;
     }
 }

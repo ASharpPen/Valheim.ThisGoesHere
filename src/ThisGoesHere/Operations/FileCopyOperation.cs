@@ -20,7 +20,7 @@ internal static class FileCopyOperation
 
         try
         {
-            (string fromFull, string fromPartial) = PathHelper.ExtractFilePath(config.From);
+            PathHelper.ExtractFilePath(config.From, out string fromFull, out string fromPartial);
 
             if (!PathHelper.IsInsideBepInExFolder(fromFull))
             {
@@ -34,7 +34,7 @@ internal static class FileCopyOperation
                 return;
             }
 
-            (string toFull, string toPartial) = PathHelper.ExtractFilePath(config.To);
+            PathHelper.ExtractFilePath(config.To, out string toFull, out string toPartial);
 
             if (toFull == fromFull)
             {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Valheim.ThisGoesHere.Configs;
+using Valheim.ThisGoesHere.Extensions;
 
 namespace Valheim.ThisGoesHere.Operations;
 
@@ -13,14 +14,14 @@ internal static class DirectoryDeleteOperation
 
     public static void Execute(string path)
     {
-        if (string.IsNullOrWhiteSpace(path))
+        if (path.IsEmpty())
         {
             return;
         }
 
         try
         {
-            (string pathFull, string pathRelative) = PathHelper.ExtractFilePath(path);
+            PathHelper.ExtractFilePath(path, out string pathFull, out string pathRelative);
 
             if (!PathHelper.IsInsideBepInExFolder(pathFull))
             {

@@ -21,7 +21,7 @@ internal static class DirectoryMoveOperation
 
         try
         {
-            (string fromFull, string fromRelative) = PathHelper.ExtractFilePath(config.From);
+            PathHelper.ExtractFilePath(config.From, out string fromFull, out string fromRelative);
 
             if (!PathHelper.IsInsideBepInExFolder(fromFull))
             {
@@ -35,7 +35,7 @@ internal static class DirectoryMoveOperation
                 return;
             }
 
-            (string toFull, string toPartial) = PathHelper.ExtractFilePath(config.To);
+            PathHelper.ExtractFilePath(config.To, out string toFull, out string toPartial);
 
             var fromFolder = new DirectoryInfo(fromFull).Name;
             toFull = Path.Combine(toFull, fromFolder);

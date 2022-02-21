@@ -28,7 +28,7 @@ internal static class FileMoveOperation
 
         try
         {
-            (string fromFull, string fromPartial) = PathHelper.ExtractFilePath(fromFile);
+            PathHelper.ExtractFilePath(fromFile, out string fromFull, out string fromPartial);
 
             if (!PathHelper.IsInsideBepInExFolder(fromFull))
             {
@@ -42,7 +42,7 @@ internal static class FileMoveOperation
                 return;
             }
 
-            (string toFull, string toPartial) = PathHelper.ExtractFilePath(toFile);
+            PathHelper.ExtractFilePath(toFile, out string toFull, out string toPartial);
 
             if (toFull == fromFull)
             {

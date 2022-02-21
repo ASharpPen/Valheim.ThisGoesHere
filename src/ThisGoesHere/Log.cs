@@ -5,7 +5,7 @@ namespace Valheim.ThisGoesHere;
 
 internal static class Log
 {
-    internal static ManualLogSource Logger;
+    internal static ManualLogSource Logger = BepInEx.Logging.Logger.CreateLogSource(Patcher.Name);
 
     public static void LogTrace(string message)
     {
