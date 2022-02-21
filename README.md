@@ -96,6 +96,12 @@ This example will result in logs like this when starting Valheim.
 ...
 ```
 
+# Support
+
+If you feel like it
+
+<a href="https://www.buymeacoffee.com/asharppen"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=asharppen&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+
 # Changelog:
 - v2.0.0
   - Converted from plugin to patcher. This means it now needs to be installed in bepinex/patchers instead of bepinex/plugins. It allows This Goes Here to run before any plugins are loaded, meaning even mod dll's can now be properly targetted. Eg., mods can be deleted before they are loaded.
