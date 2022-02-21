@@ -22,7 +22,7 @@ internal static class DirectoryCopyOperation
 
         try
         {
-            (string fromFull, string fromRelative) = PathHelper.ExtractFilePath(config.From);
+            PathHelper.ExtractFilePath(config.From, out string fromFull, out string fromRelative);
 
             if (!PathHelper.IsInsideBepInExFolder(fromFull))
             {
@@ -36,7 +36,7 @@ internal static class DirectoryCopyOperation
                 return;
             }
 
-            (string toFull, string toPartial) = PathHelper.ExtractFilePath(config.To);
+            PathHelper.ExtractFilePath(config.To, out string toFull, out string toPartial);
 
             var fromFolder = new DirectoryInfo(fromFull).Name;
             toFull = Path.Combine(toFull, fromFolder);

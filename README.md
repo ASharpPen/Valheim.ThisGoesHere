@@ -97,6 +97,10 @@ This example will result in logs like this when starting Valheim.
 ```
 
 # Changelog:
+- v2.0.0
+  - Converted from plugin to patcher. This means it now needs to be installed in bepinex/patchers instead of bepinex/plugins. It allows This Goes Here to run before any plugins are loaded, meaning even mod dll's can now be properly targetted. Eg., mods can be deleted before they are loaded.
+- v1.2.2
+  - Added missing YamlDotNet, forgot to add it to the bundle. Woops.
 - v1.2.1
   - Fixed CopyFolder and MoveFolder moving entire 'from'-path into 'to', instead of just the indicated 'from' folder.
 - v1.2.0
