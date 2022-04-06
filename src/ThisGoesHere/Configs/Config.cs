@@ -19,6 +19,8 @@ public class Config
 
     public List<FolderCopyEntry> CopyFolder { get; set; }
 
+    public List<FolderCopyContentEntry> CopyFolderContent { get; set; }
+
     public List<string> DeleteFolder { get; set; }
 }
 
@@ -41,6 +43,12 @@ public class FolderMoveEntry
 }
 
 public class FolderCopyEntry
+{
+    public string From { get; set; }
+    public string To { get; set; }
+}
+
+public class FolderCopyContentEntry
 {
     public string From { get; set; }
     public string To { get; set; }
