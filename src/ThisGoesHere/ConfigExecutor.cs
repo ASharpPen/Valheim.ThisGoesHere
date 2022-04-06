@@ -18,6 +18,7 @@ internal static class ConfigExecutor
         FileDeleteOperation.Execute(config);
 
         DirectoryCopyOperation.Execute(config);
+        DirectoryCopyContentOperation.Execute(config);
         DirectoryMoveOperation.Execute(config);
         DirectoryDeleteOperation.Execute(config);
     }

@@ -55,6 +55,15 @@
         "$ref": "#/definitions/FolderCopyEntry"
       }
     },
+    "CopyFolderContent": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/FolderCopyContentEntry"
+      }
+    },
     "DeleteFolder": {
       "type": [
         "array",
@@ -121,6 +130,24 @@
       }
     },
     "FolderCopyEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "From": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "To": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "FolderCopyContentEntry": {
       "type": "object",
       "additionalProperties": false,
       "properties": {

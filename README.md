@@ -15,6 +15,7 @@ ThisGoesHere scans the `BepInEx/configs` folder for any and all files named `Val
   - Delete
 - Folder
   - Copy
+  - Copy Content
   - Move
   - Delete
 
@@ -35,6 +36,9 @@ DeleteFile:
 CopyFolder:
 - From: #Path to folder that should be copied.
   To: #Path to folder destination. Existing files will be overwritten.
+CopyFolderContent:
+- From: #Path to folder that should have all its content copied.
+  To: #Path to folder destination. Existing files will be overwritten.
 MoveFolder:
 - From: #Path to folder that should be moved.
   To: #Path to folder destination. Existing files will be overwritten.
@@ -49,8 +53,9 @@ Operations in each config are run in the order:
 3. MoveFile
 4. DeleteFile
 5. CopyFolder
-6. MoveFolder
-7. DeleteFolder
+6. CopyFolderContent
+7. MoveFolder
+8. DeleteFolder
 
 ## Example
 
@@ -103,6 +108,8 @@ If you feel like it
 <a href="https://www.buymeacoffee.com/asharppen"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=asharppen&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 # Changelog:
+- v2.1.0
+  - Added CopyFolderContent option.
 - v2.0.0
   - Converted from plugin to patcher. This means it now needs to be installed in bepinex/patchers instead of bepinex/plugins. It allows This Goes Here to run before any plugins are loaded, meaning even mod dll's can now be properly targetted. Eg., mods can be deleted before they are loaded.
 - v1.2.2
