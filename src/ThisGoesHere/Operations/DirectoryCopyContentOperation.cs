@@ -12,7 +12,7 @@ internal static class DirectoryCopyContentOperation
 {
     public static void Execute(Config config)
     {
-        config.CopyFolderContent.ForEach(x => Execute(x));
+        config.CopyFolderContent?.ForEach(x => Execute(x));
     }
 
     public static void Execute(FolderCopyContentEntry config)
