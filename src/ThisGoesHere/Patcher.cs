@@ -8,7 +8,7 @@ namespace Valheim.ThisGoesHere;
 internal static class Patcher
 {
     public const string Name = "This Goes Here";
-    public const string Version = "2.1.0";
+    public const string Version = "2.1.1";
 
     public static void Initialize()
     {

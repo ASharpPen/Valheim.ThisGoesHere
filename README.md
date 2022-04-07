@@ -108,6 +108,8 @@ If you feel like it
 <a href="https://www.buymeacoffee.com/asharppen"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=asharppen&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 # Changelog:
+- v2.1.1
+  - Fixed missing null-check for CopyFolderContent...
 - v2.1.0
   - Added CopyFolderContent option.
 - v2.0.0
