@@ -2,6 +2,7 @@
 using System.Linq;
 using Valheim.ThisGoesHere.Configs;
 using Mono.Cecil;
+using Valheim.ThisGoesHere.Logging;
 
 namespace Valheim.ThisGoesHere;
 
@@ -12,6 +13,9 @@ internal static class Patcher
 
     public static void Initialize()
     {
+        PathHelper.RootPath = BepInEx.Paths.BepInExRootPath;
+        Log.Logger = new BepInExLogger();
+
         var configs = ConfigLoader.Load();
 
         if (configs is null || configs.Count == 0)

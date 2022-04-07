@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using BepInEx;
 using Valheim.ThisGoesHere.Extensions;
 
 namespace Valheim.ThisGoesHere;
 
 internal static class PathHelper
 {
+    internal static string RootPath { get; set; }
+
     public static void ExtractFilePath(string file, out string full, out string partial)
     {
         var recombined = Combine(file.SplitBySlash());
 
-        full = Path.Combine(Paths.BepInExRootPath, recombined);
+        full = Path.Combine(RootPath, recombined);
         partial = recombined;
     }
 
@@ -22,7 +22,7 @@ internal static class PathHelper
     {
         var relativeRecombined = Combine(relativePath.SplitBySlash());
 
-        full = Path.Combine(Paths.BepInExRootPath, relativeRecombined);
+        full = Path.Combine(RootPath, relativeRecombined);
         relative = relativeRecombined;
     }
 
@@ -54,7 +54,7 @@ internal static class PathHelper
     {
         return Path
             .GetFullPath(path)
-            .StartsWith(Paths.BepInExRootPath);
+            .StartsWith(RootPath);
     }
 
     public static void EnsureDirectoryExistsForFile(string filePath)
